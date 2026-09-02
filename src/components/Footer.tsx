@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
               aria-label="c·três"
             >
               <BrandLogo
-                className="h-16 sm:h-20 md:h-24 w-auto max-w-[240px] sm:max-w-[300px] object-contain"
+                className="h-[29px] sm:h-[35px] md:h-[42px] w-auto max-w-[105px] sm:max-w-[133px] object-contain"
                 alt="c·três"
               />
             </a>
@@ -36,23 +36,20 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Social Icons (Instagram and LinkedIn placeholders) */}
-          <div className="md:col-span-3 flex md:justify-end items-center gap-4">
-            <span className="text-xs font-tension uppercase tracking-[0.2em] text-neutral-500 mr-1">
-              Redes:
-            </span>
+          <div className="md:col-span-3 flex md:justify-end items-center gap-3">
             <a
               href="#"
               aria-label="Instagram C.três"
-              className="w-10 h-10 border border-neutral-800 bg-neutral-900/60 hover:bg-neutral-800 hover:border-neutral-600 flex items-center justify-center text-neutral-400 hover:text-white transition-all"
+              className="p-1.5 text-neutral-400 hover:text-white transition-colors inline-flex items-center justify-center"
             >
-              <Instagram className="w-4 h-4" />
+              <Instagram className="w-5 h-5" />
             </a>
             <a
               href="#"
               aria-label="LinkedIn C.três"
-              className="w-10 h-10 border border-neutral-800 bg-neutral-900/60 hover:bg-neutral-800 hover:border-neutral-600 flex items-center justify-center text-neutral-400 hover:text-white transition-all"
+              className="p-1.5 text-neutral-400 hover:text-white transition-colors inline-flex items-center justify-center"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-5 h-5" />
             </a>
           </div>
         </div>

@@ -6,11 +6,9 @@ interface BrandLogoProps {
 }
 
 const LOGO_SOURCES = [
-  '/ChatGPT Image 30 de jul. de 2026, 19_52_15.png',
   '/logo.png',
-  '/logo.svg',
+  '/ChatGPT Image 30 de jul. de 2026, 19_52_15.png',
   '/logo-ctres.png',
-  '/logo-c3.png',
 ];
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({

@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
               aria-label="c·três"
             >
               <BrandLogo
-                className="h-10 sm:h-12 md:h-14 w-auto max-w-[200px] sm:max-w-[240px] object-contain"
+                className="h-[21px] sm:h-[27px] md:h-[31px] w-auto max-w-[110px] sm:max-w-[132px] object-contain"
                 alt="c·três"
               />
             </a>
