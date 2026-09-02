@@ -1,27 +1,24 @@
 import React from 'react';
 import { Mail, Instagram, Linkedin } from 'lucide-react';
-import { BrailleDivider } from './BrailleMotif';
+import { BrandLogo } from './BrandLogo';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#070707] border-t border-neutral-900 py-16 px-6 text-neutral-400">
       <div className="max-w-6xl mx-auto w-full space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between">
-          {/* Logo Placeholder (Solid color block per exact instruction) */}
+          {/* Logo */}
           <div className="md:col-span-4 flex flex-col items-start gap-3">
-            {/* Logo placeholder de bloco de cor por enquanto */}
-            <div className="relative w-44 h-16 bg-neutral-900 border border-neutral-800 flex flex-col items-center justify-center px-4 py-2 group">
-              {/* substituir por imagem real: Logo oficial C.três Experiências Imersivas */}
-              <span className="font-editorial text-xl text-neutral-100 font-light tracking-wide">
-                c<span className="text-neutral-400">·</span>três
-              </span>
-              <span className="font-tension text-[9px] uppercase tracking-[0.25em] text-neutral-400">
-                Experiências Imersivas
-              </span>
-            </div>
-            <span className="text-[11px] font-mono tracking-widest text-neutral-600">
-              ⠉ · ⠞⠗⠑⠎
-            </span>
+            <a
+              href="#abertura"
+              className="inline-block transition-opacity hover:opacity-90"
+              aria-label="c·três"
+            >
+              <BrandLogo
+                className="h-16 sm:h-20 md:h-24 w-auto max-w-[240px] sm:max-w-[300px] object-contain"
+                alt="c·três"
+              />
+            </a>
           </div>
 
           {/* Contact Email */}
@@ -60,10 +57,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <BrailleDivider
-          braille="⠉ · ⠞ ⠗ ⠑ ⠎ · ⠃ ⠗ ⠁ ⠎ ⠊ ⠇"
-          text="Experiências Imersivas Corporativas"
-        />
+        <div className="h-[1px] w-full bg-neutral-900" />
 
         {/* Bottom copyright notice */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-600 pt-4">

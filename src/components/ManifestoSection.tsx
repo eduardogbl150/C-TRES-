@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import { BrailleDivider, BrailleTexture } from './BrailleMotif';
+import { BrailleTexture } from './BrailleMotif';
 
 export const ManifestoSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,22 +9,18 @@ export const ManifestoSection: React.FC = () => {
     {
       text: 'A escuridão não é ausência. É convite.',
       emphasis: true,
-      braille: '⠁ ⠑⠎⠉⠥⠗⠊⠙⠁⠕ ⠝⠁⠕ ⠑ ⠁⠥⠎⠑⠝⠉⠊⠁ · ⠑ ⠉⠕⠝⠧⠊⠞⠑',
     },
     {
       text: 'É onde a pele começa a ouvir, o ouvido começa a ver, e a memória se torna a única imagem possível.',
       emphasis: false,
-      braille: '⠕⠥⠧⠊⠗ · ⠧⠑⠗ · ⠍⠑⠍⠕⠗⠊⠁',
     },
     {
       text: 'Criamos experiências corporativas que apagam a luz para que algo mais fundo se acenda.',
       emphasis: false,
-      braille: '⠁⠏⠁⠛⠁⠗ ⠁ ⠇⠥⠵ · ⠁⠉⠑⠝⠙⠑⠗ ⠕ ⠎⠑⠝⠞⠊⠙⠕',
     },
     {
       text: 'O que sua marca quer que seja lembrado, não visto?',
       emphasis: true,
-      braille: '⠇⠑⠍⠃⠗⠁⠙⠕ · ⠝⠁⠕ ⠧⠊⠎⠞⠕',
     },
   ];
 
@@ -39,10 +35,12 @@ export const ManifestoSection: React.FC = () => {
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         {/* Section marker */}
         <div className="text-center mb-16 md:mb-24">
-          <span className="font-tension text-xs uppercase tracking-[0.3em] text-neutral-500 block mb-2">
+          <span className="font-tension text-xs uppercase tracking-[0.3em] text-neutral-500 block mb-3">
             01 / O Princípio
           </span>
-          <BrailleDivider braille="⠍ ⠁ ⠝ ⠊ ⠋ ⠑ ⠎ ⠞ ⠕" text="Manifesto" />
+          <h2 className="font-editorial text-3xl sm:text-4xl text-neutral-200 font-light tracking-wide">
+            Manifesto
+          </h2>
         </div>
 
         {/* The Exact Manifesto Text with Progressive Light Reveal */}
@@ -69,7 +67,6 @@ interface ManifestoLineProps {
   sentence: {
     text: string;
     emphasis: boolean;
-    braille: string;
   };
   index: number;
 }
@@ -94,12 +91,6 @@ const ManifestoLine: React.FC<ManifestoLineProps> = ({ sentence, index }) => {
       className="group relative select-text"
     >
       <div className="flex flex-col items-center gap-3">
-        <span
-          className="text-xs font-mono tracking-[0.25em] text-neutral-600 transition-opacity duration-700"
-          aria-hidden="true"
-        >
-          {sentence.braille}
-        </span>
         <p
           className={`font-editorial ${
             sentence.emphasis

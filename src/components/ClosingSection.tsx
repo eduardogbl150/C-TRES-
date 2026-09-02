@@ -54,10 +54,6 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ selectedPortal }
             <span>Começar</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
-
-          <span className="text-xs font-mono text-neutral-600 tracking-widest pt-2">
-            ⠑ ⠝ ⠞ ⠗ ⠑ · ⠝ ⠕ · ⠑ ⠎ ⠉ ⠥ ⠗ ⠕
-          </span>
         </div>
       </div>
 

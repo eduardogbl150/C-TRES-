@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import { BrailleTexture } from './BrailleMotif';
+import { BrailleDots, BrailleTexture } from './BrailleMotif';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -19,12 +19,16 @@ export const HeroSection: React.FC = () => {
         {/* Braille subtle preamble */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 2.2, delay: 0.3 }}
-          className="text-xs font-mono tracking-[0.4em] text-neutral-500 select-none"
+          className="flex justify-center select-none"
           aria-hidden="true"
         >
-          ⠑ ⠎ ⠑ ⠧ ⠕ ⠉ ⠑ ⠝ ⠁ ⠕ ⠏ ⠥ ⠙ ⠑ ⠎ ⠎ ⠑ ⠧ ⠑ ⠗
+          <BrailleDots
+            pattern="⠑ ⠎ ⠑ ⠧ ⠕ ⠉ ⠑ ⠝ ⠁ ⠕ ⠏ ⠥ ⠙ ⠑ ⠎ ⠎ ⠑ ⠧ ⠑ ⠗"
+            size="sm"
+            opacity={0.5}
+          />
         </motion.div>
 
         {/* Impact Question */}
@@ -48,10 +52,6 @@ export const HeroSection: React.FC = () => {
             <h2 className="font-tension text-sm sm:text-base md:text-lg font-bold uppercase tracking-[0.32em] text-neutral-400">
               C · TRÊS EXPERIÊNCIAS IMERSIVAS
             </h2>
-            <div className="h-[1px] w-12 bg-neutral-800" />
-            <span className="text-[11px] font-mono tracking-[0.3em] text-neutral-600 select-none">
-              ⠉ · ⠞⠗⠑⠎
-            </span>
           </div>
         </motion.div>
       </div>

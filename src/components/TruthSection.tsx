@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Users, EyeOff, Sparkles } from 'lucide-react';
-import { BrailleDivider, BrailleTexture } from './BrailleMotif';
+import { BrailleDots, BrailleTexture } from './BrailleMotif';
 
 export const TruthSection: React.FC = () => {
   return (
@@ -20,7 +20,6 @@ export const TruthSection: React.FC = () => {
           <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl font-light text-neutral-100 mb-4">
             A verdade por trás da escuridão
           </h2>
-          <BrailleDivider braille="⠁ · ⠧ ⠑ ⠗ ⠙ ⠁ ⠙ ⠑" />
         </div>
 
         {/* Content Layout */}
@@ -86,9 +85,11 @@ export const TruthSection: React.FC = () => {
                 <span className="font-tension text-[11px] uppercase tracking-[0.25em] text-neutral-400">
                   Elenco & Condutores
                 </span>
-                <span className="font-mono text-xs text-neutral-500">
-                  ⠉⠕⠝⠙⠥⠞⠕⠗⠑⠎
-                </span>
+                <BrailleDots
+                  pattern="⠉⠕⠝⠙⠥⠞⠕⠗⠑⠎"
+                  size="xs"
+                  opacity={0.55}
+                />
               </div>
 
               <div className="relative z-10 my-auto text-center space-y-3 py-10">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { BrailleDivider, BrailleTexture } from './BrailleMotif';
+import { BrailleDots, BrailleTexture } from './BrailleMotif';
 
 interface PortalsSectionProps {
   onPortalSelect: (portalName: string) => void;
@@ -75,7 +75,6 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
         <p className="font-body text-neutral-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
           Três caminhos distintos para desligar a visão e acender todos os outros sentidos da sua equipe e convidados.
         </p>
-        <BrailleDivider braille="⠞ ⠗ ⠑ ⠎ · ⠏ ⠕ ⠗ ⠞ ⠁ ⠊ ⠎" />
       </div>
 
       {/* Three Full-Bleed Vertical Blocks in Sequence */}
@@ -104,10 +103,6 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                       style={{ color: portal.accentColor }}
                     >
                       Portal {portal.number}
-                    </span>
-                    <span className="h-[1px] w-8 bg-neutral-800" />
-                    <span className="text-xs font-mono text-neutral-500 tracking-widest" aria-hidden="true">
-                      {portal.brailleText}
                     </span>
                   </div>
 
@@ -177,9 +172,12 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                     <span className="text-[10px] font-tension uppercase tracking-[0.2em] text-neutral-500">
                       {portal.badge}
                     </span>
-                    <span className="font-mono text-xs text-neutral-600 tracking-widest">
-                      {portal.brailleText}
-                    </span>
+                    <BrailleDots
+                      pattern={portal.brailleText}
+                      size="xs"
+                      accentColor={portal.accentColor}
+                      opacity={0.55}
+                    />
                   </div>
 
                   {/* Center sensory iconography / branding accent */}
@@ -191,9 +189,14 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                           <span className="font-editorial text-2xl tracking-widest text-neutral-200 block uppercase">
                             Teatro Cego
                           </span>
-                          <span className="text-sm font-mono tracking-[0.3em] text-neutral-500 block">
-                            ⠞⠑⠁⠞⠗⠕ ⠉⠑⠛⠕
-                          </span>
+                          <div className="pt-1 flex justify-center">
+                            <BrailleDots
+                              pattern="⠞⠑⠁⠞⠗⠕ ⠉⠑⠛⠕"
+                              size="sm"
+                              accentColor="#f5f5f5"
+                              opacity={0.65}
+                            />
+                          </div>
                         </div>
                       )}
 
@@ -207,9 +210,14 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                               CEGO
                             </span>
                           </div>
-                          <span className="text-sm font-mono tracking-[0.3em] text-[#C9A227]/70 block">
-                            ⠚⠁⠝⠞⠁⠗ ⠉⠑⠛⠕
-                          </span>
+                          <div className="pt-1 flex justify-center">
+                            <BrailleDots
+                              pattern="⠚⠁⠝⠞⠁⠗ ⠉⠑⠛⠕"
+                              size="sm"
+                              accentColor="#C9A227"
+                              opacity={0.7}
+                            />
+                          </div>
                         </div>
                       )}
 
@@ -228,9 +236,14 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                               DIVE
                             </span>
                           </div>
-                          <span className="text-sm font-mono tracking-[0.3em] text-[#C81E2D]/70 block">
-                            ⠑⠭⠏⠗⠑⠎⠎⠕ ⠙⠊⠧⠑
-                          </span>
+                          <div className="pt-1 flex justify-center">
+                            <BrailleDots
+                              pattern="⠑⠭⠏⠗⠑⠎⠎⠕ ⠙⠊⠧⠑"
+                              size="sm"
+                              accentColor="#C81E2D"
+                              opacity={0.75}
+                            />
+                          </div>
                         </div>
                       )}
                     </div>

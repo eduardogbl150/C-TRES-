@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
   onStartClick: () => void;
@@ -40,17 +41,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
             {/* Logo */}
             <a
               href="#abertura"
-              className="flex items-baseline gap-2.5 group transition-opacity hover:opacity-80"
+              className="flex items-center group transition-opacity hover:opacity-90 py-1"
+              aria-label="c·três"
             >
-              <span className="font-editorial text-2xl tracking-wide text-neutral-100">
-                c<span className="text-neutral-400">·</span>três
-              </span>
-              <span className="font-tension text-xs uppercase tracking-[0.25em] text-neutral-400">
-                Experiências Imersivas
-              </span>
-              <span className="hidden sm:inline-block text-neutral-600 text-xs tracking-widest pl-1 font-mono" aria-hidden="true">
-                ⠉·⠞⠗⠑⠎
-              </span>
+              <BrandLogo
+                className="h-10 sm:h-12 md:h-14 w-auto max-w-[200px] sm:max-w-[240px] object-contain"
+                alt="c·três"
+              />
             </a>
 
             {/* Desktop Navigation Links */}

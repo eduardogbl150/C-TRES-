@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Ear, Compass, ShieldCheck, Sparkles } from 'lucide-react';
-import { BrailleDivider, BrailleTexture } from './BrailleMotif';
+import { BrailleDots, BrailleTexture } from './BrailleMotif';
 
 export const HowItWorksSection: React.FC = () => {
   const steps = [
@@ -58,7 +58,6 @@ export const HowItWorksSection: React.FC = () => {
           <p className="font-body text-neutral-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Quatro etapas que transformam uma sala corporativa em uma experiência indelével.
           </p>
-          <BrailleDivider braille="⠉ ⠕ ⠍ ⠕ · ⠋ ⠥ ⠝ ⠉ ⠊ ⠕ ⠝ ⠁" />
         </div>
 
         {/* 4 Pillars Grid */}
@@ -76,13 +75,15 @@ export const HowItWorksSection: React.FC = () => {
               >
                 {/* Subtle top indicator */}
                 <div className="flex items-center justify-between pb-6 border-b border-neutral-800/80 mb-6">
-                  <div className="flex items-baseline gap-3">
+                  <div className="flex items-center gap-3">
                     <span className="font-tension text-2xl font-light text-neutral-300">
                       {step.num}
                     </span>
-                    <span className="text-xs font-mono text-neutral-600 tracking-widest">
-                      {step.braille}
-                    </span>
+                    <BrailleDots
+                      pattern={step.braille}
+                      size="xs"
+                      opacity={0.55}
+                    />
                   </div>
                   <Icon className="w-5 h-5 text-neutral-500 group-hover:text-neutral-300 transition-colors" />
                 </div>
