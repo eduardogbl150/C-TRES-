@@ -1,0 +1,6 @@
+{
+  "name": "C.três — Experiências Imersivas",
+  "description": "Eventos corporativos totalmente às escuras, guiados por atores e profissionais cegos de verdade. Teatro Cego, Jantar Cego e Expresso Dive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
