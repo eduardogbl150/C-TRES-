@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { BrailleDots, BrailleTexture } from './BrailleMotif';
-import { PortalTitleAsset } from './PortalTitleAsset';
 
 interface PortalsSectionProps {
   onPortalSelect: (portalName: string) => void;
@@ -107,11 +106,9 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                     </span>
                   </div>
 
-                  <PortalTitleAsset
-                    portalId={portal.id}
-                    portalName={portal.name}
-                    className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-light text-neutral-100 tracking-tight"
-                  />
+                  <h3 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-light text-neutral-100 tracking-tight">
+                    {portal.name}
+                  </h3>
                 </div>
 
                 {/* Tagline / Impact Phrase */}
