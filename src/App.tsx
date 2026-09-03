@@ -9,6 +9,7 @@ import { HeroSection } from './components/HeroSection';
 import { ManifestoSection } from './components/ManifestoSection';
 import { PortalsSection } from './components/PortalsSection';
 import { TruthSection } from './components/TruthSection';
+import { ClientsSection } from './components/ClientsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { ClosingSection } from './components/ClosingSection';
 import { Footer } from './components/Footer';
@@ -60,6 +61,9 @@ export default function App() {
 
         {/* 4. A verdade por trás da escuridão */}
         <TruthSection />
+
+        {/* 4.5. Empresas atendidas */}
+        <ClientsSection />
 
         {/* 5. Como funciona */}
         <HowItWorksSection />

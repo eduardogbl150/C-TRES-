@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { BrailleDots, BrailleTexture } from './BrailleMotif';
-
 interface PortalsSectionProps {
   onPortalSelect: (portalName: string) => void;
 }
@@ -21,8 +20,9 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       description:
         'Uma peça encenada no escuro absoluto, conduzida por atores cegos. O público não assiste: respira, escuta, toca, é tocado. Ideal para lançamentos, convenções e ativações onde a empresa precisa deixar marca no corpo, não na retina.',
       ctaText: 'Explorar Teatro Cego',
-      imagePlaceholderComment:
-        'substituir por imagem real: Cena encenada de Teatro Cego na escuridão profunda com atores cegos e plateia imersa em estímulos táteis e sonoros',
+      image: '/teatro-cego.png',
+      fallbackImage: '/teatro-cego.jpg',
+      imageAlt: 'Teatro Cego - Experiência imersiva no escuro',
       badge: 'Cênico & Imersivo',
       sensoryTraits: ['Audição espacial', 'Estímulos táteis', 'Atores no mesmo plano da plateia'],
     },
@@ -38,8 +38,9 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       description:
         'Um jantar servido por garçons cegos que também cantam. Cada prato é uma revelação sensorial; cada voz, uma iluminação. Gastronomia, música e escuridão a serviço do encontro que sua empresa quer provocar.',
       ctaText: 'Explorar Jantar Cego',
-      imagePlaceholderComment:
-        'substituir por imagem real: Mesa de alta gastronomia no Jantar Cego com garçons cantores cegos servindo no escuro total',
+      image: '/jantar-cego.png',
+      fallbackImage: '/jantar-cego.jpg',
+      imageAlt: 'Jantar Cego - Gastronomia sensorial e música vocal',
       badge: 'Gastronômico & Musical',
       sensoryTraits: ['Paladar & olfato aguçados', 'Garçons cantores', 'Música vocal ao vivo'],
     },
@@ -55,8 +56,9 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       description:
         'Um trem reconstruído inteiramente para simular uma viagem imersiva no escuro: trilhos, vibração, paisagens sonoras, temperatura, aromas. Um deslocamento sem imagem, projetado sob medida para o objetivo do seu evento.',
       ctaText: 'Explorar Expresso Dive',
-      imagePlaceholderComment:
-        'substituir por imagem real: Vagão de trem cenográfico do Expresso Dive com simulação física de movimento, trilhos e som binaural',
+      image: '/expresso-dive.png',
+      fallbackImage: '/expresso-dive.jpg',
+      imageAlt: 'Expresso Dive - Viagem sinestésica sobre trilhos no escuro',
       badge: 'Cenográfico & Sinestésico',
       sensoryTraits: ['Vibração de trilhos reais', 'Paisagens sonoras dinâmicas', 'Aromas & temperatura'],
     },
@@ -156,103 +158,48 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                 </div>
               </div>
 
-              {/* Visual Placeholder Block (Full adherence to user rule: solid color block with exact comment) */}
+              {/* Visual Image Card with Photorealistic Asset */}
               <div className="lg:col-span-5">
                 <div
-                  className={`relative aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] w-full bg-[#141414] border ${portal.accentBorder} p-8 flex flex-col justify-between overflow-hidden group`}
+                  className={`relative aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] w-full bg-[#141414] border ${portal.accentBorder} flex flex-col justify-between overflow-hidden group rounded-sm shadow-2xl`}
                 >
-                  {/* substituir por imagem real: ${portal.imagePlaceholderComment} */}
-                  
-                  {/* Atmospheric inner texture */}
-                  <div className="absolute inset-0 bg-braille-pattern opacity-10 pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                  {/* Photo with subtle hover scale effect */}
+                  <img
+                    src={portal.image}
+                    alt={portal.imageAlt}
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (target.src.endsWith('.png')) {
+                        target.src = portal.fallbackImage;
+                      }
+                    }}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+
+                  {/* Dramatic multi-layer dark gradient overlay for cinematic contrast and readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
 
                   {/* Top indicator of visual block */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="text-[10px] font-tension uppercase tracking-[0.2em] text-neutral-500">
+                  <div className="relative z-10 p-6 flex items-center justify-between">
+                    <span className="text-[10px] font-tension uppercase tracking-[0.2em] px-2.5 py-1 bg-black/70 backdrop-blur-sm border border-neutral-800 text-neutral-300">
                       {portal.badge}
                     </span>
-                    <BrailleDots
-                      pattern={portal.brailleText}
-                      size="xs"
-                      accentColor={portal.accentColor}
-                      opacity={0.55}
-                    />
-                  </div>
-
-                  {/* Center sensory iconography / branding accent */}
-                  <div className="relative z-10 my-auto text-center py-10 space-y-4">
-                    {/* Visual emblem representing the sensory essence */}
-                    <div className="inline-flex flex-col items-center gap-3">
-                      {portal.id === 'teatro-cego' && (
-                        <div className="space-y-2">
-                          <span className="font-editorial text-2xl tracking-widest text-neutral-200 block uppercase">
-                            Teatro Cego
-                          </span>
-                          <div className="pt-1 flex justify-center">
-                            <BrailleDots
-                              pattern="⠞⠑⠁⠞⠗⠕ ⠉⠑⠛⠕"
-                              size="sm"
-                              accentColor="#f5f5f5"
-                              opacity={0.65}
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      {portal.id === 'jantar-cego' && (
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-center gap-2">
-                            <span className="font-tension text-xl font-bold tracking-wider text-white">
-                              JANTAR
-                            </span>
-                            <span className="font-tension text-xl font-bold tracking-wider text-[#C9A227]">
-                              CEGO
-                            </span>
-                          </div>
-                          <div className="pt-1 flex justify-center">
-                            <BrailleDots
-                              pattern="⠚⠁⠝⠞⠁⠗ ⠉⠑⠛⠕"
-                              size="sm"
-                              accentColor="#C9A227"
-                              opacity={0.7}
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      {portal.id === 'expresso-dive' && (
-                        <div className="space-y-3">
-                          <div className="flex flex-col gap-1 items-center">
-                            <div className="w-12 h-1 bg-[#C81E2D]" />
-                            <div className="w-12 h-1 bg-[#C81E2D]" />
-                            <div className="w-12 h-1 bg-[#C81E2D]" />
-                          </div>
-                          <div className="flex items-center justify-center gap-1">
-                            <span className="font-tension text-lg font-bold tracking-widest text-white">
-                              EXPRESSO
-                            </span>
-                            <span className="font-tension text-lg font-extrabold italic tracking-widest text-[#C81E2D]">
-                              DIVE
-                            </span>
-                          </div>
-                          <div className="pt-1 flex justify-center">
-                            <BrailleDots
-                              pattern="⠑⠭⠏⠗⠑⠎⠎⠕ ⠙⠊⠧⠑"
-                              size="sm"
-                              accentColor="#C81E2D"
-                              opacity={0.75}
-                            />
-                          </div>
-                        </div>
-                      )}
+                    <div className="px-2 py-1 bg-black/70 backdrop-blur-sm border border-neutral-800/80">
+                      <BrailleDots
+                        pattern={portal.brailleText}
+                        size="xs"
+                        accentColor={portal.accentColor}
+                        opacity={0.8}
+                      />
                     </div>
                   </div>
 
                   {/* Bottom metadata tag */}
-                  <div className="relative z-10 pt-4 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-500 font-mono">
-                    <span>Imersão Total</span>
-                    <span className="uppercase tracking-widest">Escuridão 100%</span>
+                  <div className="relative z-10 p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-[11px] text-neutral-400 font-mono">
+                    <span className="font-tension uppercase tracking-wider text-neutral-300">Imersão Total</span>
+                    <span className="uppercase tracking-widest text-[10px] px-2 py-0.5 border border-neutral-800 bg-black/60">Escuridão 100%</span>
                   </div>
                 </div>
               </div>
