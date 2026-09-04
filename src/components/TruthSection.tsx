@@ -96,28 +96,24 @@ export const TruthSection: React.FC = () => {
                 className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Dramatic multi-layer dark gradient overlay for cinematic contrast and readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/60 pointer-events-none" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
-
               {/* Top indicator of visual block */}
-              <div className="relative z-10 p-6 flex items-center justify-between">
-                <span className="font-tension text-[10px] sm:text-[11px] uppercase tracking-[0.25em] px-2.5 py-1 bg-black/75 backdrop-blur-sm border border-neutral-800 text-neutral-300">
+              <div className="relative z-10 p-5 flex items-center justify-between">
+                <span className="font-tension text-[10px] sm:text-[11px] uppercase tracking-[0.25em] px-2.5 py-1 bg-black/60 backdrop-blur-md border border-white/10 text-neutral-200 shadow-lg">
                   Elenco & Condutores
                 </span>
-                <div className="px-2 py-1 bg-black/75 backdrop-blur-sm border border-neutral-800/80">
+                <div className="px-2 py-1 bg-black/60 backdrop-blur-md border border-white/10 shadow-lg">
                   <BrailleDots
                     pattern="⠉⠕⠝⠙⠥⠞⠕⠗⠑⠎"
                     size="xs"
-                    opacity={0.8}
+                    opacity={0.85}
                   />
                 </div>
               </div>
 
               {/* Bottom metadata tag */}
-              <div className="relative z-10 p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-[11px] text-neutral-400 font-mono">
-                <span className="font-tension uppercase tracking-wider text-neutral-300">Inclusão Genuína</span>
-                <span className="uppercase tracking-widest text-[10px] px-2 py-0.5 border border-neutral-800 bg-black/60">Arte · Voz · Tato</span>
+              <div className="relative z-10 p-5 flex items-center justify-between text-[11px] text-neutral-300 font-mono">
+                <span className="font-tension uppercase tracking-wider text-white text-xs drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] px-2 py-0.5 bg-black/60 backdrop-blur-md border border-white/10">Inclusão Genuína</span>
+                <span className="uppercase tracking-widest text-[10px] px-2 py-0.5 border border-white/10 bg-black/60 backdrop-blur-md text-neutral-200">Arte · Voz · Tato</span>
               </div>
             </div>
           </div>
