@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users, EyeOff, Sparkles } from 'lucide-react';
 import { BrailleDots, BrailleTexture } from './BrailleMotif';
+import elencoImg from '@/src/assets/images/elenco_ctres_foto_1788544957683.jpg';
 
 export const TruthSection: React.FC = () => {
+  const [imgSrc, setImgSrc] = React.useState<string>('/elenco.jpg');
+
   return (
     <section
       id="verdade"
@@ -75,40 +78,46 @@ export const TruthSection: React.FC = () => {
 
           {/* Visual block representation */}
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full bg-[#121212] border border-neutral-800 p-8 flex flex-col justify-between overflow-hidden">
-              {/* substituir por imagem real: Retrato em chiaroscuro da equipe e dos atores e profissionais cegos da C.três */}
-              
-              <div className="absolute inset-0 bg-braille-pattern opacity-10 pointer-events-none" />
-              <div className="absolute inset-0 bg-radial from-transparent via-black/40 to-black/90 pointer-events-none" />
+            <div className="relative aspect-[4/5] w-full bg-[#141414] border border-neutral-800 flex flex-col justify-between overflow-hidden group rounded-sm shadow-2xl">
+              {/* Photo with subtle hover scale effect */}
+              <img
+                src={imgSrc}
+                alt="Elenco e condutores da C.três - Profissionais e atores cegos"
+                referrerPolicy="no-referrer"
+                onError={() => {
+                  if (imgSrc === '/elenco.jpg') {
+                    setImgSrc('/elenco.png');
+                  } else if (imgSrc === '/elenco.png') {
+                    setImgSrc('/ChatGPT Image 4 de set. de 2026, 14_52_19.png');
+                  } else if (imgSrc !== elencoImg) {
+                    setImgSrc(elencoImg);
+                  }
+                }}
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
 
-              <div className="relative z-10 flex justify-between items-center">
-                <span className="font-tension text-[11px] uppercase tracking-[0.25em] text-neutral-400">
+              {/* Dramatic multi-layer dark gradient overlay for cinematic contrast and readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/60 pointer-events-none" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
+
+              {/* Top indicator of visual block */}
+              <div className="relative z-10 p-6 flex items-center justify-between">
+                <span className="font-tension text-[10px] sm:text-[11px] uppercase tracking-[0.25em] px-2.5 py-1 bg-black/75 backdrop-blur-sm border border-neutral-800 text-neutral-300">
                   Elenco & Condutores
                 </span>
-                <BrailleDots
-                  pattern="⠉⠕⠝⠙⠥⠞⠕⠗⠑⠎"
-                  size="xs"
-                  opacity={0.55}
-                />
-              </div>
-
-              <div className="relative z-10 my-auto text-center space-y-3 py-10">
-                <div className="w-16 h-16 mx-auto rounded-full border border-neutral-700 flex items-center justify-center text-neutral-300">
-                  <EyeOff className="w-7 h-7" />
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-editorial text-2xl text-neutral-100 font-light">
-                    Mestres do Invisível
-                  </h3>
-                  <p className="text-xs text-neutral-400 font-body max-w-xs mx-auto">
-                    Inversão de papéis onde quem não enxerga conduz quem enxerga com segurança total.
-                  </p>
+                <div className="px-2 py-1 bg-black/75 backdrop-blur-sm border border-neutral-800/80">
+                  <BrailleDots
+                    pattern="⠉⠕⠝⠙⠥⠞⠕⠗⠑⠎"
+                    size="xs"
+                    opacity={0.8}
+                  />
                 </div>
               </div>
 
-              <div className="relative z-10 pt-4 border-t border-neutral-800/80 flex items-center justify-between text-[11px] font-mono text-neutral-500">
-                <span>Inclusão Genuína</span>
-                <span className="tracking-wider">Arte · Voz · Tato</span>
+              {/* Bottom metadata tag */}
+              <div className="relative z-10 p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-[11px] text-neutral-400 font-mono">
+                <span className="font-tension uppercase tracking-wider text-neutral-300">Inclusão Genuína</span>
+                <span className="uppercase tracking-widest text-[10px] px-2 py-0.5 border border-neutral-800 bg-black/60">Arte · Voz · Tato</span>
               </div>
             </div>
           </div>
