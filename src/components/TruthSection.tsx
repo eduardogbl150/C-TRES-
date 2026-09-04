@@ -5,7 +5,7 @@ import { BrailleDots, BrailleTexture } from './BrailleMotif';
 import elencoImg from '@/src/assets/images/elenco_ctres_foto_1788544957683.jpg';
 
 export const TruthSection: React.FC = () => {
-  const [imgSrc, setImgSrc] = React.useState<string>('/elenco.jpg');
+  const [imgSrc, setImgSrc] = React.useState<string>('/elenco.png');
 
   return (
     <section
