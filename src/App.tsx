@@ -13,35 +13,20 @@ import { ClientsSection } from './components/ClientsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { ClosingSection } from './components/ClosingSection';
 import { Footer } from './components/Footer';
+import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
+import { ContactOverlay } from './components/ContactOverlay';
 
 export default function App() {
   const [selectedPortal, setSelectedPortal] = useState<string | null>(null);
+  const [contactOverlayOpen, setContactOverlayOpen] = useState(false);
 
   const handleStartClick = () => {
     setSelectedPortal(null);
-    const closingEl = document.getElementById('fechamento');
-    if (closingEl) {
-      closingEl.scrollIntoView({ behavior: 'smooth' });
-    }
-    const btn = document.getElementById('btn-comecar');
-    if (btn) {
-      btn.click();
-    }
+    setContactOverlayOpen(true);
   };
 
-  const handlePortalSelect = (portalName: string) => {
-    setSelectedPortal(portalName);
-    const closingEl = document.getElementById('fechamento');
-    if (closingEl) {
-      closingEl.scrollIntoView({ behavior: 'smooth' });
-    }
-    // Trigger modal with selected portal context
-    setTimeout(() => {
-      const btn = document.getElementById('btn-comecar');
-      if (btn) {
-        btn.click();
-      }
-    }, 400);
+  const handleOpenContact = () => {
+    setContactOverlayOpen(true);
   };
 
   return (
@@ -57,7 +42,7 @@ export default function App() {
         <ManifestoSection />
 
         {/* 3. Três Portais */}
-        <PortalsSection onPortalSelect={handlePortalSelect} />
+        <PortalsSection />
 
         {/* 4. A verdade por trás da escuridão */}
         <TruthSection />
@@ -69,11 +54,25 @@ export default function App() {
         <HowItWorksSection />
 
         {/* 6. Fechamento */}
-        <ClosingSection selectedPortal={selectedPortal} />
+        <ClosingSection
+          selectedPortal={selectedPortal}
+          onOpenContact={handleOpenContact}
+        />
       </main>
 
       {/* Rodapé */}
       <Footer />
+
+      {/* Botão flutuante de WhatsApp fixo */}
+      <FloatingWhatsAppButton />
+
+      {/* Overlay de Pré-Qualificação Interativo */}
+      <ContactOverlay
+        isOpen={contactOverlayOpen}
+        onClose={() => setContactOverlayOpen(false)}
+        initialPortal={selectedPortal}
+      />
     </div>
   );
 }
+

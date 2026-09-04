@@ -1,9 +1,13 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { BrailleDots, BrailleTexture } from './BrailleMotif';
+
+const WHATSAPP_NUMBER = "5511915617506";
+const whatsappLink = (mensagem: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+
 interface PortalsSectionProps {
-  onPortalSelect: (portalName: string) => void;
+  onPortalSelect?: (portalName: string) => void;
 }
 
 export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }) => {
@@ -20,6 +24,7 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       description:
         'Uma peça encenada no escuro absoluto, conduzida por atores cegos. O público não assiste: respira, escuta, toca, é tocado. Ideal para lançamentos, convenções e ativações onde a empresa precisa deixar marca no corpo, não na retina.',
       ctaText: 'Explorar Teatro Cego',
+      whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Teatro Cego.'),
       image: '/teatro-cego.png',
       fallbackImage: '/teatro-cego.jpg',
       imageAlt: 'Teatro Cego - Experiência imersiva no escuro',
@@ -38,6 +43,7 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       description:
         'Um jantar servido por garçons cegos que também cantam. Cada prato é uma revelação sensorial; cada voz, uma iluminação. Gastronomia, música e escuridão a serviço do encontro que sua empresa quer provocar.',
       ctaText: 'Explorar Jantar Cego',
+      whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Jantar Cego.'),
       image: '/jantar-cego.png',
       fallbackImage: '/jantar-cego.jpg',
       imageAlt: 'Jantar Cego - Gastronomia sensorial e música vocal',
@@ -56,6 +62,7 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       description:
         'Um trem reconstruído inteiramente para simular uma viagem imersiva no escuro: trilhos, vibração, paisagens sonoras, temperatura, aromas. Um deslocamento sem imagem, projetado sob medida para o objetivo do seu evento.',
       ctaText: 'Explorar Expresso Dive',
+      whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Expresso Dive.'),
       image: '/expresso-dive.png',
       fallbackImage: '/expresso-dive.jpg',
       imageAlt: 'Expresso Dive - Viagem sinestésica sobre trilhos no escuro',
@@ -146,15 +153,16 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
 
                 {/* Discrete CTA link (text with arrow, not a flashy button) */}
                 <div className="pt-4">
-                  <button
-                    type="button"
-                    onClick={() => onPortalSelect(portal.name)}
+                  <a
+                    href={portal.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-3 text-sm font-tension uppercase tracking-[0.25em] transition-all duration-300 hover:translate-x-1"
                     style={{ color: portal.accentColor }}
                   >
                     <span>{portal.ctaText}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
 

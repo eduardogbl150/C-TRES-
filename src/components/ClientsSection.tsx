@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Lightbulb, Compass } from 'lucide-react';
+import { Home, Lightbulb, Compass, Star } from 'lucide-react';
 import { clientesAtendidos } from '@/src/data/clientes';
 
 interface Milestone {
@@ -57,6 +57,30 @@ const MEDIA_CARDS: MediaCard[] = [
     summary:
       'Experiência sensorial composta por um jantar completo, com couvert, entrada, prato principal, sobremesa e harmonização com vinhos, servido completamente no escuro.',
     url: 'https://www.adrianegalisteu.com.br/2021/07/experiencia-sensorial-no-jantar-cego/',
+  },
+];
+
+interface Testimonial {
+  name: string;
+  rating: number;
+  text: string;
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Ubirajara Del Moral',
+    rating: 5,
+    text: 'Experiência sensorial absurda, com sabores, aromas, sons e contatos, tudo absolutamente às escuras. Evento muito bem organizado com destaque para os garçons cegos que fazem toda diferença.',
+  },
+  {
+    name: 'Renata Colaço',
+    rating: 5,
+    text: 'Foi uma experiência muito interessante. Estar numa situação completamente diferente para mim mas habitual para outros foi desafiador! Comemorei meu aniversário lá e me senti presenteada com a oportunidade.',
+  },
+  {
+    name: 'Vitor Homem',
+    rating: 5,
+    text: 'Foi uma noite e uma experiência incrível. Viver, mesmo que por algumas horas, a vida do outro com deficiência visual, transcende muito qualquer experiência que você poderá ter na vida.',
   },
 ];
 
@@ -154,7 +178,51 @@ export const ClientsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Bloco 3 — Rótulo da Esteira de Clientes */}
+        {/* Bloco 3 — Quem já viveu a experiência (Depoimentos) */}
+        <div className="space-y-8 pt-4">
+          <div className="text-center">
+            <h3 className="font-editorial text-2xl sm:text-3xl text-neutral-100 font-normal tracking-wide">
+              Quem já viveu a experiência
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {TESTIMONIALS.map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="bg-white/[0.04] hover:bg-white/[0.07] border border-neutral-800/80 hover:border-neutral-700 rounded-lg p-6 sm:p-7 flex flex-col justify-between transition-colors duration-300 group"
+              >
+                <div className="space-y-4">
+                  {/* Nome & Estrelas */}
+                  <div className="space-y-2">
+                    <p className="font-sans text-base sm:text-lg font-bold text-neutral-100">
+                      {testimonial.name}
+                    </p>
+                    <div
+                      className="flex items-center gap-1 text-amber-400/90"
+                      aria-label={`${testimonial.rating} de 5 estrelas`}
+                    >
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-current stroke-none"
+                          aria-hidden="true"
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Depoimento */}
+                  <p className="font-body text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                    “{testimonial.text}”
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bloco 4 — Rótulo da Esteira de Clientes */}
         <div className="text-center pt-2">
           <p className="font-tension text-[11px] sm:text-xs uppercase tracking-[0.3em] text-neutral-500 select-none">
             EMPRESAS QUE JÁ VIVERAM A EXPERIÊNCIA
@@ -162,7 +230,7 @@ export const ClientsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Bloco 3 — Esteira horizontal contínua de clientes */}
+      {/* Bloco 4 — Esteira horizontal contínua de clientes */}
       <div className="relative w-full overflow-hidden marquee-container mt-8 md:mt-10">
         {/* Left Gradient Mask */}
         <div
