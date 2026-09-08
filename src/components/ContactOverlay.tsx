@@ -26,6 +26,32 @@ const INITIAL_DATA: ContactFormData = {
 
 const PEOPLE_OPTIONS = ['Até 20', '20 a 50', '50 a 100', 'Mais de 100'];
 
+function formatarData(valor: string): string {
+  const digitos = valor.replace(/\D/g, '').slice(0, 8);
+  const partes: string[] = [];
+  if (digitos.length > 0) partes.push(digitos.slice(0, 2));
+  if (digitos.length > 2) partes.push(digitos.slice(2, 4));
+  if (digitos.length > 4) partes.push(digitos.slice(4, 8));
+  return partes.join('/');
+}
+
+function dataValida(valor: string): boolean {
+  const match = valor.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!match) return false;
+
+  const dia = parseInt(match[1], 10);
+  const mes = parseInt(match[2], 10);
+  const ano = parseInt(match[3], 10);
+
+  if (mes < 1 || mes > 12) return false;
+  if (ano < 2000 || ano > 2100) return false;
+
+  const diasNoMes = new Date(ano, mes, 0).getDate();
+  if (dia < 1 || dia > diasNoMes) return false;
+
+  return true;
+}
+
 interface ContactOverlayProps {
   isOpen: boolean;
   onClose: () => void;
@@ -72,7 +98,7 @@ export const ContactOverlay: React.FC<ContactOverlayProps> = ({
       case 2:
         return formData.numero_pessoas.length > 0;
       case 3:
-        return formData.data_prevista.trim().length > 0;
+        return dataValida(formData.data_prevista.trim());
       case 4:
         return (
           formData.nome_contato.trim().length > 0 &&
@@ -83,6 +109,9 @@ export const ContactOverlay: React.FC<ContactOverlayProps> = ({
         return false;
     }
   };
+
+  const isDateComplete = formData.data_prevista.trim().length === 10;
+  const isDateInvalid = isDateComplete && !dataValida(formData.data_prevista.trim());
 
   const handleNext = () => {
     if (!isCurrentStepValid()) return;
@@ -336,19 +365,37 @@ export const ContactOverlay: React.FC<ContactOverlayProps> = ({
                     >
                       Qual a data prevista para o evento?
                     </label>
-                    <div className="pt-2">
+                    <div className="pt-2 space-y-3">
                       <input
                         id="input-data-prevista"
                         type="text"
+                        inputMode="numeric"
                         autoFocus
                         value={formData.data_prevista}
                         onChange={(e) =>
-                          setFormData({ ...formData, data_prevista: e.target.value })
+                          setFormData({
+                            ...formData,
+                            data_prevista: formatarData(e.target.value),
+                          })
                         }
                         onKeyDown={handleKeyDown}
-                        placeholder="ex: novembro de 2026, ou ainda não sei"
-                        className="w-full bg-transparent border-b-2 border-neutral-700 focus:border-neutral-200 text-xl sm:text-2xl text-neutral-100 py-3 px-1 placeholder:text-neutral-600 focus:outline-none transition-colors"
+                        placeholder="DD/MM/AAAA"
+                        className={`w-full bg-transparent border-b-2 text-xl sm:text-2xl text-neutral-100 py-3 px-1 placeholder:text-neutral-600 focus:outline-none transition-colors ${
+                          isDateInvalid
+                            ? 'border-red-500/80 focus:border-red-400'
+                            : 'border-neutral-700 focus:border-neutral-200'
+                        }`}
                       />
+                      {isDateInvalid && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-xs sm:text-sm text-red-400/90 font-body flex items-center gap-1.5 pt-1"
+                        >
+                          <AlertCircle className="w-4 h-4 shrink-0 stroke-[1.5]" />
+                          <span>Essa data não existe, confira o dia e o mês.</span>
+                        </motion.p>
+                      )}
                     </div>
                   </div>
                 )}

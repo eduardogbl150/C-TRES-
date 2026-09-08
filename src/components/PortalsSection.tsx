@@ -25,6 +25,8 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
         'Uma peça encenada no escuro absoluto, conduzida por atores cegos. O público não assiste: respira, escuta, toca, é tocado. Ideal para lançamentos, convenções e ativações onde a empresa precisa deixar marca no corpo, não na retina.',
       ctaText: 'Explorar Teatro Cego',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Teatro Cego.'),
+      ctaClasses:
+        'bg-white/[0.08] hover:bg-white/[0.15] border-white/25 hover:border-white/50 text-neutral-100',
       image: '/teatro-cego.png',
       fallbackImage: '/teatro-cego.jpg',
       imageAlt: 'Teatro Cego - Experiência imersiva no escuro',
@@ -44,6 +46,8 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
         'Um jantar servido por garçons cegos que também cantam. Cada prato é uma revelação sensorial; cada voz, uma iluminação. Gastronomia, música e escuridão a serviço do encontro que sua empresa quer provocar.',
       ctaText: 'Explorar Jantar Cego',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Jantar Cego.'),
+      ctaClasses:
+        'bg-[#C9A227]/[0.10] hover:bg-[#C9A227]/[0.18] border-[#C9A227]/30 hover:border-[#C9A227]/60 text-[#DFC15D] shadow-[0_4px_20px_rgba(201,162,39,0.05)] hover:shadow-[0_4px_25px_rgba(201,162,39,0.15)]',
       image: '/jantar-cego.png',
       fallbackImage: '/jantar-cego.jpg',
       imageAlt: 'Jantar Cego - Gastronomia sensorial e música vocal',
@@ -63,6 +67,8 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
         'Um trem reconstruído inteiramente para simular uma viagem imersiva no escuro: trilhos, vibração, paisagens sonoras, temperatura, aromas. Um deslocamento sem imagem, projetado sob medida para o objetivo do seu evento.',
       ctaText: 'Explorar Expresso Dive',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Expresso Dive.'),
+      ctaClasses:
+        'bg-[#C81E2D]/[0.10] hover:bg-[#C81E2D]/[0.18] border-[#C81E2D]/35 hover:border-[#C81E2D]/65 text-[#F05365] shadow-[0_4px_20px_rgba(200,30,45,0.05)] hover:shadow-[0_4px_25px_rgba(200,30,45,0.15)]',
       image: '/expresso-dive.png',
       fallbackImage: '/expresso-dive.jpg',
       imageAlt: 'Expresso Dive - Viagem sinestésica sobre trilhos no escuro',
@@ -151,17 +157,18 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                   </div>
                 </div>
 
-                {/* Discrete CTA link (text with arrow, not a flashy button) */}
-                <div className="pt-4">
+                {/* Highlighted Portal CTA */}
+                <div className="pt-4 sm:pt-6">
                   <a
                     href={portal.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 text-sm font-tension uppercase tracking-[0.25em] transition-all duration-300 hover:translate-x-1"
-                    style={{ color: portal.accentColor }}
+                    className={`group w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-4 sm:gap-5 min-h-[46px] sm:min-h-[48px] px-5 sm:px-6 py-3 sm:py-3.5 border transition-all duration-300 ease-out hover:shadow-lg ${portal.ctaClasses}`}
                   >
-                    <span>{portal.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+                    <span className="text-xs sm:text-sm font-tension uppercase tracking-[0.22em] font-semibold sm:font-bold">
+                      {portal.ctaText}
+                    </span>
+                    <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-2 group-hover:scale-110" />
                   </a>
                 </div>
               </div>
@@ -189,17 +196,17 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 pointer-events-none" />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
 
-                  {/* Top indicator of visual block */}
+                  {/* Top indicator of visual block - unboxed clean category badge and braille */}
                   <div className="relative z-10 p-6 flex items-center justify-between">
-                    <span className="text-[10px] font-tension uppercase tracking-[0.2em] px-2.5 py-1 bg-black/70 backdrop-blur-sm border border-neutral-800 text-neutral-300">
+                    <span className="text-[10px] sm:text-[11px] font-tension uppercase tracking-[0.22em] text-neutral-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                       {portal.badge}
                     </span>
-                    <div className="px-2 py-1 bg-black/70 backdrop-blur-sm border border-neutral-800/80">
+                    <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                       <BrailleDots
                         pattern={portal.brailleText}
                         size="xs"
                         accentColor={portal.accentColor}
-                        opacity={0.8}
+                        opacity={0.85}
                       />
                     </div>
                   </div>
@@ -207,7 +214,6 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                   {/* Bottom metadata tag */}
                   <div className="relative z-10 p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between text-[11px] text-neutral-400 font-mono">
                     <span className="font-tension uppercase tracking-wider text-neutral-300">Imersão Total</span>
-                    <span className="uppercase tracking-widest text-[10px] px-2 py-0.5 border border-neutral-800 bg-black/60">Escuridão 100%</span>
                   </div>
                 </div>
               </div>
