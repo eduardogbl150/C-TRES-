@@ -62,9 +62,9 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       accentBorder: 'border-[#C81E2D]/40',
       accentGlow: 'text-glow-red',
       brailleText: '⠑⠭⠏⠗⠑⠎⠎⠕ ⠙⠊⠧⠑',
-      tagline: 'Você entra em um vagão. Não é o vagão que se move.',
+      tagline: 'Você entra em um vagão. E a viagem acontece no escuro.',
       description:
-        'Um trem reconstruído inteiramente para simular uma viagem imersiva no escuro: trilhos, vibração, paisagens sonoras, temperatura, aromas. Um deslocamento sem imagem, projetado sob medida para o objetivo do seu evento.',
+        'Uma experiência imersiva realizada completamente no escuro, dentro de um vagão de trem. Sem a visão como referência, os participantes são convidados a ouvir, sentir e perceber de outras formas.\n\nUma jornada sensorial que explora olfato, paladar, escuta, tato e mente, criando espaço para novas percepções, emoções e aprendizados.',
       ctaText: 'Explorar Expresso Dive',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Expresso Dive.'),
       ctaClasses:
@@ -135,9 +135,11 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                 </blockquote>
 
                 {/* Exact Product Description */}
-                <p className="font-body text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-                  {portal.description}
-                </p>
+                <div className="font-body text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light space-y-4">
+                  {portal.description.split('\n\n').map((paragraph, pIdx) => (
+                    <p key={pIdx}>{paragraph}</p>
+                  ))}
+                </div>
 
                 {/* Sensory Traits / Details */}
                 <div className="pt-2">
