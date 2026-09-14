@@ -38,14 +38,18 @@ export const Footer: React.FC = () => {
           {/* Social Icons (Instagram and LinkedIn placeholders) */}
           <div className="md:col-span-3 flex md:justify-end items-center gap-3">
             <a
-              href="#"
-              aria-label="Instagram C.três"
+              href="https://www.instagram.com/jantarcego/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram Jantar Cego"
               className="p-1.5 text-neutral-400 hover:text-white transition-colors inline-flex items-center justify-center"
             >
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/company/ctresexperienciasimersivas/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn C.três"
               className="p-1.5 text-neutral-400 hover:text-white transition-colors inline-flex items-center justify-center"
             >

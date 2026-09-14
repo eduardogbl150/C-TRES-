@@ -68,7 +68,7 @@
 }
 
 .marquee-track {
-  animation: infinite-marquee 28s linear infinite;
+  animation: infinite-marquee 56s linear infinite;
   will-change: transform;
 }
 

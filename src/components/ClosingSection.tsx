@@ -34,7 +34,7 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ onOpenContact })
 
         <BrailleDivider braille="⠉ ⠕ ⠝ ⠞ ⠑ · ⠎ ⠥ ⠁ · ⠊ ⠝ ⠞ ⠑ ⠝ ⠉ ⠁ ⠕" />
 
-        {/* Single Button "Começar" */}
+        {/* Single Button "Fazer orçamento" */}
         <div className="pt-4 flex flex-col items-center gap-4">
           <button
             type="button"
@@ -42,7 +42,7 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ onOpenContact })
             onClick={onOpenContact}
             className="group relative inline-flex items-center gap-3 px-10 py-4 bg-neutral-100 hover:bg-white text-neutral-950 font-tension text-base uppercase tracking-[0.25em] font-bold transition-all duration-300 shadow-2xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
-            <span>Começar</span>
+            <span>Fazer orçamento</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
         </div>

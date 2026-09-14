@@ -4,6 +4,33 @@ import { Users, EyeOff, Sparkles } from 'lucide-react';
 import { BrailleDots, BrailleTexture } from './BrailleMotif';
 import elencoImg from '@/src/assets/images/elenco_ctres_foto_1788544957683.jpg';
 
+interface Milestone {
+  year: string;
+  title: string;
+  description: string;
+}
+
+const MILESTONES: Milestone[] = [
+  {
+    year: '2012',
+    title: 'O início',
+    description:
+      'Em 2012, a C.três deu os primeiros passos com o Teatro Cego, o primeiro formato do tipo no Brasil, com espetáculos totalmente no escuro e atores cegos.',
+  },
+  {
+    year: '2019',
+    title: 'Inovação',
+    description:
+      'Lançou o Jantar Cego, experiência gastronômica no escuro que desafia a percepção e une gastronomia, música e sensorialidade.',
+  },
+  {
+    year: '2026',
+    title: 'Novas experiências',
+    description:
+      'Chega o Expresso Dive, uma nova forma de viver a escuridão em movimento, dentro de um vagão cenográfico.',
+  },
+];
+
 export const TruthSection: React.FC = () => {
   const [imgSrc, setImgSrc] = React.useState<string>('/elenco.png');
 
@@ -98,13 +125,14 @@ export const TruthSection: React.FC = () => {
 
               {/* Top indicator of visual block */}
               <div className="relative z-10 p-5 flex items-center justify-between">
-                <span className="font-tension text-[10px] sm:text-[11px] uppercase tracking-[0.25em] px-2.5 py-1 bg-black/60 backdrop-blur-md border border-white/10 text-neutral-200 shadow-lg">
+                <span className="font-tension text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-neutral-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   Elenco & Condutores
                 </span>
-                <div className="px-2 py-1 bg-black/60 backdrop-blur-md border border-white/10 shadow-lg">
+                <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex items-center">
                   <BrailleDots
-                    pattern="⠉⠕⠝⠙⠥⠞⠕⠗⠑⠎"
+                    pattern="⠑ ⠇ ⠑ ⠝ ⠉ ⠕"
                     size="xs"
+                    accentColor="#e5e5e5"
                     opacity={0.85}
                   />
                 </div>
@@ -116,6 +144,39 @@ export const TruthSection: React.FC = () => {
                 <span className="uppercase tracking-widest text-[10px] px-2 py-0.5 border border-white/10 bg-black/60 backdrop-blur-md text-neutral-200">Arte · Voz · Tato</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Marcos Históricos (3 colunas lado a lado separadas por linha vertical sutil) */}
+        <div className="mt-20 md:mt-24 pt-14 md:pt-18 border-t border-neutral-800/60">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-800/60">
+            {MILESTONES.map((milestone, idx) => (
+              <div
+                key={milestone.year}
+                className={`py-6 md:py-2 ${
+                  idx === 0
+                    ? 'md:pr-8 lg:pr-12'
+                    : idx === 1
+                    ? 'md:px-8 lg:px-12'
+                    : 'md:pl-8 lg:pl-12'
+                } flex flex-col items-start text-left`}
+              >
+                {/* Ano em destaque (fonte serifada, tamanho médio) */}
+                <span className="font-editorial text-3xl sm:text-4xl text-neutral-100 font-normal tracking-tight mb-2">
+                  {milestone.year}
+                </span>
+
+                {/* Título curto abaixo do ano (uppercase, tracking largo, tamanho pequeno) */}
+                <h3 className="font-tension text-xs uppercase tracking-[0.25em] text-neutral-300 font-semibold mb-3">
+                  {milestone.title}
+                </h3>
+
+                {/* Descrição breve abaixo (corpo de texto regular, menor) */}
+                <p className="font-body text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                  {milestone.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

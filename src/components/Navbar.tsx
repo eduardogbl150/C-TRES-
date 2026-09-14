@@ -51,12 +51,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
             </a>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8">
               <a
                 href="#manifesto"
                 className="text-xs uppercase tracking-[0.2em] font-tension text-neutral-400 hover:text-white transition-colors"
               >
-                Manifesto
+                Experiência
               </a>
               <a
                 href="#portais"
@@ -68,7 +68,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
                 href="#verdade"
                 className="text-xs uppercase tracking-[0.2em] font-tension text-neutral-400 hover:text-white transition-colors"
               >
-                A Verdade
+                Bastidores
+              </a>
+              <a
+                href="#avaliacoes"
+                className="text-xs uppercase tracking-[0.2em] font-tension text-neutral-400 hover:text-white transition-colors"
+              >
+                Avaliações
               </a>
               <a
                 href="#como-funciona"
@@ -85,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
                 onClick={onStartClick}
                 className="group inline-flex items-center gap-2 px-5 py-2.5 border border-neutral-700 bg-neutral-900/60 hover:bg-neutral-800 hover:border-neutral-500 text-neutral-200 text-xs font-tension uppercase tracking-[0.2em] transition-all duration-300"
               >
-                <span>Começar</span>
+                <span>Fazer orçamento</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
@@ -118,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-sm uppercase tracking-[0.2em] font-tension text-neutral-300 hover:text-white py-2"
                 >
-                  Manifesto
+                  Experiência
                 </a>
                 <a
                   href="#portais"
@@ -132,7 +138,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-sm uppercase tracking-[0.2em] font-tension text-neutral-300 hover:text-white py-2"
                 >
-                  A Verdade por Trás da Escuridão
+                  Bastidores
+                </a>
+                <a
+                  href="#avaliacoes"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-sm uppercase tracking-[0.2em] font-tension text-neutral-300 hover:text-white py-2"
+                >
+                  Avaliações
                 </a>
                 <a
                   href="#como-funciona"
@@ -150,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
                     }}
                     className="w-full flex items-center justify-center gap-2 py-3 border border-neutral-600 bg-neutral-900 text-white font-tension uppercase tracking-[0.2em] text-xs"
                   >
-                    <span>Começar</span>
+                    <span>Fazer orçamento</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
                 </div>

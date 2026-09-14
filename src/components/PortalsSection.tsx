@@ -1,17 +1,46 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Wind, Utensils, Ear, Hand, Brain } from 'lucide-react';
 import { BrailleDots, BrailleTexture } from './BrailleMotif';
+import teatroCegoImg from '@/assets/teatro-cego.png';
 
 const WHATSAPP_NUMBER = "5511915617506";
 const whatsappLink = (mensagem: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+
+interface SenseItem {
+  icon: React.ElementType;
+  label: string;
+  desc: string;
+}
+
+interface PortalItem {
+  id: string;
+  number: string;
+  name: string;
+  accentColor: string;
+  accentBorder: string;
+  accentGlow: string;
+  brailleText: string;
+  tagline: string;
+  description: string;
+  ctaText: string;
+  whatsappUrl: string;
+  ctaClasses: string;
+  image: string;
+  fallbackImage: string;
+  imageAlt: string;
+  badge: string;
+  sensoryTraits: string[];
+  stats: string;
+  senses?: SenseItem[];
+}
 
 interface PortalsSectionProps {
   onPortalSelect?: (portalName: string) => void;
 }
 
 export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }) => {
-  const portals = [
+  const portals: PortalItem[] = [
     {
       id: 'teatro-cego',
       number: '01',
@@ -23,15 +52,16 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       tagline: 'A plateia não está diante da cena. Está dentro dela.',
       description:
         'Uma peça encenada no escuro absoluto, conduzida por atores cegos. O público não assiste: respira, escuta, toca, é tocado. Ideal para lançamentos, convenções e ativações onde a empresa precisa deixar marca no corpo, não na retina.',
-      ctaText: 'Explorar Teatro Cego',
+      ctaText: 'Reservar Teatro Cego',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Teatro Cego.'),
       ctaClasses:
         'bg-white/[0.08] hover:bg-white/[0.15] border-white/25 hover:border-white/50 text-neutral-100',
-      image: '/teatro-cego.png',
+      image: teatroCegoImg,
       fallbackImage: '/teatro-cego.jpg',
-      imageAlt: 'Teatro Cego - Experiência imersiva no escuro',
+      imageAlt: 'Óculos com tabela de visão formando as palavras Teatro Cego',
       badge: 'Cênico & Imersivo',
       sensoryTraits: ['Audição espacial', 'Estímulos táteis', 'Atores no mesmo plano da plateia'],
+      stats: '6 peças no repertório · Público adulto e infantil',
     },
     {
       id: 'jantar-cego',
@@ -43,8 +73,8 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       brailleText: '⠚⠁⠝⠞⠁⠗ ⠉⠑⠛⠕',
       tagline: 'O sabor chega antes da imagem. E fica muito depois.',
       description:
-        'Um jantar servido por garçons cegos que também cantam. Cada prato é uma revelação sensorial; cada voz, uma iluminação. Gastronomia, música e escuridão a serviço do encontro que sua empresa quer provocar.',
-      ctaText: 'Explorar Jantar Cego',
+        'Um jantar servido por garçons cegos que também cantam. Cada prato é uma revelação sensorial; cada voz, uma iluminação. Disponível em formato de jantar ou almoço, para até 120 pessoas simultaneamente. Gastronomia, música e escuridão a serviço da cultura, engajamento e retenção que sua empresa quer construir.',
+      ctaText: 'Reservar Jantar Cego',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Jantar Cego.'),
       ctaClasses:
         'bg-[#C9A227]/[0.10] hover:bg-[#C9A227]/[0.18] border-[#C9A227]/30 hover:border-[#C9A227]/60 text-[#DFC15D] shadow-[0_4px_20px_rgba(201,162,39,0.05)] hover:shadow-[0_4px_25px_rgba(201,162,39,0.15)]',
@@ -52,7 +82,8 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       fallbackImage: '/jantar-cego.jpg',
       imageAlt: 'Jantar Cego - Gastronomia sensorial e música vocal',
       badge: 'Gastronômico & Musical',
-      sensoryTraits: ['Paladar & olfato aguçados', 'Garçons cantores', 'Música vocal ao vivo'],
+      sensoryTraits: ['Paladar & olfato aguçados', 'Garçons cantores', 'Música Vocal'],
+      stats: 'Até 120 pessoas · Jantar ou Almoço',
     },
     {
       id: 'expresso-dive',
@@ -64,16 +95,24 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
       brailleText: '⠑⠭⠏⠗⠑⠎⠎⠕ ⠙⠊⠧⠑',
       tagline: 'Você entra em um vagão. E a viagem acontece no escuro.',
       description:
-        'Uma experiência imersiva realizada completamente no escuro, dentro de um vagão de trem. Sem a visão como referência, os participantes são convidados a ouvir, sentir e perceber de outras formas.\n\nUma jornada sensorial que explora olfato, paladar, escuta, tato e mente, criando espaço para novas percepções, emoções e aprendizados.',
-      ctaText: 'Explorar Expresso Dive',
+        'Um trem reconstruído inteiramente para simular uma viagem imersiva no escuro, com paisagens sonoras, temperatura e aromas. Ciclos de até 30 minutos permitem rotatividade inteligente, levando dezenas de pessoas por sessão a um novo estado de consciência, com imersão rápida e impacto duradouro.',
+      ctaText: 'Reservar Expresso Dive',
       whatsappUrl: whatsappLink('Olá! Quero saber mais sobre o Expresso Dive.'),
       ctaClasses:
         'bg-[#C81E2D]/[0.10] hover:bg-[#C81E2D]/[0.18] border-[#C81E2D]/35 hover:border-[#C81E2D]/65 text-[#F05365] shadow-[0_4px_20px_rgba(200,30,45,0.05)] hover:shadow-[0_4px_25px_rgba(200,30,45,0.15)]',
       image: '/expresso-dive.png',
       fallbackImage: '/expresso-dive.jpg',
-      imageAlt: 'Expresso Dive - Viagem sinestésica sobre trilhos no escuro',
+      imageAlt: 'Expresso Dive - Viagem sinestésica no escuro',
       badge: 'Cenográfico & Sinestésico',
-      sensoryTraits: ['Vibração de trilhos reais', 'Paisagens sonoras dinâmicas', 'Aromas & temperatura'],
+      sensoryTraits: ['Vagão cenográfico', 'Paisagens sonoras dinâmicas', 'Aromas & temperatura'],
+      stats: 'Ciclos de 30min · Até 50 pessoas por sessão',
+      senses: [
+        { icon: Wind, label: 'Olfato', desc: 'Guarda memórias' },
+        { icon: Utensils, label: 'Paladar', desc: 'Se aguça' },
+        { icon: Ear, label: 'Audição', desc: 'Se abre ao outro' },
+        { icon: Hand, label: 'Tato', desc: 'Conecta' },
+        { icon: Brain, label: 'Mente', desc: 'Permite sentir' },
+      ],
     },
   ];
 
@@ -158,6 +197,37 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                     ))}
                   </div>
                 </div>
+
+                {/* Discrete Statistics Line */}
+                {portal.stats && (
+                  <div className="pt-2">
+                    <p className="font-tension text-[11px] sm:text-xs uppercase tracking-wider text-neutral-300">
+                      {portal.stats}
+                    </p>
+                  </div>
+                )}
+
+                {/* Activated Senses Grid */}
+                {portal.senses && (
+                  <div className="pt-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-3 max-w-2xl">
+                      {portal.senses.map((sense) => {
+                        const SenseIcon = sense.icon;
+                        return (
+                          <div key={sense.label} className="flex flex-col items-start gap-1">
+                            <SenseIcon className="w-4 h-4 text-neutral-400 stroke-[1.5]" />
+                            <span className="font-tension text-[11px] uppercase tracking-wider text-neutral-300 font-semibold">
+                              {sense.label}
+                            </span>
+                            <span className="font-body text-xs text-neutral-400 font-light leading-snug">
+                              {sense.desc}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* Highlighted Portal CTA */}
                 <div className="pt-4 sm:pt-6">
