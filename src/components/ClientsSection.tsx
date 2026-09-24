@@ -70,9 +70,9 @@ export const ClientsSection: React.FC = () => {
         {/* Bloco 1 — Na mídia (Cards) */}
         <div className="space-y-8">
           <div className="text-center">
-            <h3 className="font-editorial text-2xl sm:text-3xl text-neutral-100 font-normal tracking-wide">
+            <h2 className="font-editorial text-2xl sm:text-3xl text-neutral-100 font-normal tracking-wide">
               Na mídia
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -117,9 +117,9 @@ export const ClientsSection: React.FC = () => {
         {/* Bloco 3 — Quem já viveu a experiência (Depoimentos / Avaliações) */}
         <div id="avaliacoes" className="space-y-8 pt-4 scroll-mt-28">
           <div className="text-center">
-            <h3 className="font-editorial text-2xl sm:text-3xl text-neutral-100 font-normal tracking-wide">
+            <h2 className="font-editorial text-2xl sm:text-3xl text-neutral-100 font-normal tracking-wide">
               Quem já viveu a experiência
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -158,11 +158,11 @@ export const ClientsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Bloco 4 — Rótulo da Esteira de Clientes */}
+        {/* Bloco 4 — Rótulo da Faixa de Credibilidade */}
         <div className="text-center pt-2">
-          <p className="font-tension text-[11px] sm:text-xs uppercase tracking-[0.3em] text-neutral-500 select-none">
+          <h2 className="font-tension text-[11px] sm:text-xs uppercase tracking-[0.3em] text-neutral-500 select-none">
             EMPRESAS QUE JÁ VIVERAM A EXPERIÊNCIA
-          </p>
+          </h2>
         </div>
       </div>
 

@@ -49,9 +49,9 @@ export const HeroSection: React.FC = () => {
           className="pt-2 sm:pt-4"
         >
           <div className="inline-flex flex-col items-center gap-2">
-            <h2 className="font-tension text-sm sm:text-base md:text-lg font-bold uppercase tracking-[0.32em] text-neutral-400">
-              C · TRÊS EXPERIÊNCIAS IMERSIVAS
-            </h2>
+            <p className="font-tension text-sm sm:text-base md:text-lg font-bold uppercase tracking-[0.32em] text-neutral-400">
+              C-TRÊS EXPERIÊNCIAS IMERSIVAS
+            </p>
           </div>
         </motion.div>
       </div>

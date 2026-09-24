@@ -13,7 +13,7 @@ const LOGO_SOURCES = [
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   className = 'h-14 w-auto object-contain',
-  alt = 'c·três',
+  alt = 'C-Três',
 }) => {
   const [sourceIndex, setSourceIndex] = useState(0);
 

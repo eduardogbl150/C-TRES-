@@ -90,9 +90,9 @@ export const HowItWorksSection: React.FC = () => {
 
                 {/* Core Pillar Text */}
                 <div className="space-y-4 my-2">
-                  <h3 className="font-tension text-sm uppercase tracking-[0.2em] text-neutral-400 font-bold">
+                  <h4 className="font-tension text-sm uppercase tracking-[0.2em] text-neutral-400 font-bold">
                     {step.title}
-                  </h3>
+                  </h4>
                   <p className="font-editorial text-2xl sm:text-3xl text-neutral-100 font-light leading-snug">
                     "{step.text}"
                   </p>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WHATSAPP_URL =
-  'https://wa.me/5511915617506?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20uma%20experi%C3%AAncia%20C.tr%C3%AAs';
+  'https://wa.me/5511915617506?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20uma%20experi%C3%AAncia%20C-Tr%C3%AAs';
 
 export const FloatingWhatsAppButton: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Conversar pelo WhatsApp sobre uma experiência C.três"
+        aria-label="Conversar pelo WhatsApp sobre uma experiência C-Três"
         className="group relative flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#121212]/85 hover:bg-[#1a1a1a]/95 text-neutral-200 hover:text-white border border-white/20 hover:border-white/40 shadow-xl shadow-black/60 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 focus:ring-offset-2 focus:ring-offset-black"
       >
         {/* Monochromatic WhatsApp SVG Icon */}

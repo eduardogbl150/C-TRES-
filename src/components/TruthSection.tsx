@@ -15,7 +15,7 @@ const MILESTONES: Milestone[] = [
     year: '2012',
     title: 'O início',
     description:
-      'Em 2012, a C.três deu os primeiros passos com o Teatro Cego, o primeiro formato do tipo no Brasil, com espetáculos totalmente no escuro e atores cegos.',
+      'Em 2012, a C-Três deu os primeiros passos com o Teatro Cego, o primeiro formato do tipo no Brasil, com espetáculos totalmente no escuro e atores cegos.',
   },
   {
     year: '2019',
@@ -109,7 +109,7 @@ export const TruthSection: React.FC = () => {
               {/* Photo with subtle hover scale effect */}
               <img
                 src={imgSrc}
-                alt="Elenco e condutores da C.três - Profissionais e atores cegos"
+                alt="Elenco e condutores da C-Três - Profissionais e atores cegos"
                 referrerPolicy="no-referrer"
                 onError={() => {
                   if (imgSrc === '/elenco.jpg') {
@@ -167,9 +167,9 @@ export const TruthSection: React.FC = () => {
                 </span>
 
                 {/* Título curto abaixo do ano (uppercase, tracking largo, tamanho pequeno) */}
-                <h3 className="font-tension text-xs uppercase tracking-[0.25em] text-neutral-300 font-semibold mb-3">
+                <h4 className="font-tension text-xs uppercase tracking-[0.25em] text-neutral-300 font-semibold mb-3">
                   {milestone.title}
-                </h3>
+                </h4>
 
                 {/* Descrição breve abaixo (corpo de texto regular, menor) */}
                 <p className="font-body text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">

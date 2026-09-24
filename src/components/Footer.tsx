@@ -12,11 +12,11 @@ export const Footer: React.FC = () => {
             <a
               href="#abertura"
               className="inline-block transition-opacity hover:opacity-90"
-              aria-label="c·três"
+              aria-label="C-Três"
             >
               <BrandLogo
                 className="h-[29px] sm:h-[35px] md:h-[42px] w-auto max-w-[105px] sm:max-w-[133px] object-contain"
-                alt="c·três"
+                alt="C-Três"
               />
             </a>
           </div>
@@ -38,10 +38,10 @@ export const Footer: React.FC = () => {
           {/* Social Icons (Instagram and LinkedIn placeholders) */}
           <div className="md:col-span-3 flex md:justify-end items-center gap-3">
             <a
-              href="https://www.instagram.com/jantarcego/"
+              href="https://www.instagram.com/ctres.experiencias/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram Jantar Cego"
+              aria-label="Instagram C-Três Experiências"
               className="p-1.5 text-neutral-400 hover:text-white transition-colors inline-flex items-center justify-center"
             >
               <Instagram className="w-5 h-5" />
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
               href="https://www.linkedin.com/company/ctresexperienciasimersivas/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn C.três"
+              aria-label="LinkedIn C-Três"
               className="p-1.5 text-neutral-400 hover:text-white transition-colors inline-flex items-center justify-center"
             >
               <Linkedin className="w-5 h-5" />
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom copyright notice */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-600 pt-4">
-          <p>© {new Date().getFullYear()} C.três — Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} C-Três — Todos os direitos reservados.</p>
           <p className="tracking-widest">
             Teatro Cego · Jantar Cego · Expresso Dive
           </p>

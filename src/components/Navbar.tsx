@@ -42,11 +42,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartClick }) => {
             <a
               href="#abertura"
               className="flex items-center group transition-opacity hover:opacity-90 py-1"
-              aria-label="c·três"
+              aria-label="C-Três"
             >
               <BrandLogo
                 className="h-[21px] sm:h-[27px] md:h-[31px] w-auto max-w-[110px] sm:max-w-[132px] object-contain"
-                alt="c·três"
+                alt="C-Três"
               />
             </a>
 

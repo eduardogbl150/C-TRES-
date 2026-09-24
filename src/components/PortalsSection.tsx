@@ -261,12 +261,26 @@ export const PortalsSection: React.FC<PortalsSectionProps> = ({ onPortalSelect }
                         target.src = portal.fallbackImage;
                       }
                     }}
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    className={`absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 ${
+                      portal.id === 'expresso-dive' ? 'contrast-[1.16] brightness-[1.10]' : ''
+                    }`}
                   />
 
                   {/* Dramatic multi-layer dark gradient overlay for cinematic contrast and readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 pointer-events-none" />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
+                  <div
+                    className={`absolute inset-0 pointer-events-none ${
+                      portal.id === 'expresso-dive'
+                        ? 'bg-gradient-to-t from-black/85 via-transparent to-black/50'
+                        : 'bg-gradient-to-t from-black/90 via-black/30 to-black/60'
+                    }`}
+                  />
+                  <div
+                    className={`absolute inset-0 pointer-events-none transition-colors duration-500 ${
+                      portal.id === 'expresso-dive'
+                        ? 'bg-black/10 group-hover:bg-transparent'
+                        : 'bg-black/20 group-hover:bg-black/10'
+                    }`}
+                  />
 
                   {/* Top indicator of visual block - unboxed clean category badge and braille */}
                   <div className="relative z-10 p-6 flex items-center justify-between">
